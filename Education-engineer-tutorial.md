@@ -4,7 +4,7 @@ Creating containers for application development is a fairly easy task but when y
 
 <H2>Prerequisites</H2>  
 
- *  [docker](https://docs.docker.com/desktop/)\
+ *  [docker](https://docs.docker.com/desktop/)
  *  [go](https://go.dev/) 1.16+
 
 <H2>Install kind</H2>
