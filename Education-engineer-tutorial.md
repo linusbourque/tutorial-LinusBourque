@@ -10,12 +10,12 @@ Creating containers for application development is a fairly easy task but when y
 <H2>Install kind</H2>
 Depending on your local system OS, the installation instructions are straightforward. For MacOS, the instructions will vary between Intel chipsets or M1/M2/M3 chipsets. 
 
-For Intel chipsets use the following command.
+For Intel chipsets use the following command in a terminal.
 
 `[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-darwin-amd64`
 
 
-For Silicon chips (M1/M2/M3) use the following command.
+For Silicon chips (M1/M2/M3) use the following command in a terminal.
 
 `[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64`
 
@@ -23,13 +23,20 @@ Note: the command defines the architecture (`uname-m`) and makes sure it matches
 
 ![Screenshot of installing kind on a Silicon Mac and it’s install location](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.25e280afpm-copy.png)
 
-With *kind* installed, there are two last steps to complete.
+With **kind** installed, there are two last steps to complete.
 
 1.  Enable the execute bit on the kind application: `chmod +x ./kind`
 2.  Move the executable to your preferred location for installed binaries. For example: `sudo mv ./kind /usr/local/bin/kind`
 
+<h2>Starting kind with bootstrap Cluster</h2>
 
-Once *kind* is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. 
+Once **kind** is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
+
+`./kind create cluster`
+
+If successful, you should see the output below:
+
+![Screenshot of the kind control pane being built](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.05e280afpm.png)
 
 
 
