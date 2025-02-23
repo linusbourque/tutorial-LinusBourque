@@ -11,19 +11,19 @@ Depending on your local system OS, the installation instructions are straightfor
 
 For Intel chipsets use the following command.
 
-[code][ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-darwin-amd64
+`[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-darwin-amd64`
 
 
 For Silicon chips (M1/M2/M3) use the following command.
 
-[code] [ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64
+`[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64`
 
 Note: the command defines the architecture (uname-m) and makes sure it matches the architecture version being pulled (= x86_64). The double ampersand (&&) says continue to the next command if the first worked. So if the architecture matches, then do the curl command. cURL (which stands for Client for URL) will pull and install *kind*. The flags, -Lo, allows for a location to be set as to where you want *kind* installed. In the example above, kind will be installed in the directory where the command was run. 
 
 With *kind* installed, there are two last steps to complete.
 
-1.  Enable the execute bit on the kind application: [code]chmod +x ./kind
-2.  Move the executable to your preferred location for installed binaries. For example: [code]sudo mv ./kind /usr/local/bin/kind
+1.  Enable the execute bit on the kind application: `chmod +x ./kind`
+2.  Move the executable to your preferred location for installed binaries. For example: `sudo mv ./kind /usr/local/bin/kind`
 
 
 Once *kind* is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. 
