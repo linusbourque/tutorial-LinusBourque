@@ -32,6 +32,7 @@ For Silicon chips (M1/M2/M3) use the following command in a terminal.
 ```Shell
 [ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64
 ```
+The command breaks down as follows:
 
 | Command | Meaning |
 | --------| ---------- |
