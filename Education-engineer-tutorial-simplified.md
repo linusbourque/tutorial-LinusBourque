@@ -11,7 +11,7 @@ Kubernetes is a popular container orchestration platform that is used by many or
 <h2>Quick Terminology</h2>
 
 | Term | Meaning |
-------------------
+------- | --------- |
 | Cluster | A grouping of nodes |
 | Node |  A physical or virtual machine that provides the core resources of CPU, memory, storage, etc. |
 | Pod | The smallest unit where the actual application container(s) run, utilizing the node resources |
