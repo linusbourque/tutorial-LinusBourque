@@ -39,8 +39,9 @@ The command breaks down as follows:
 | `uname-m` | requests the hardware architecture |
 | `= x86_64`| checks if it matches wanted architecture (in this case, Mac hardware with Intel CPUs) | 
 | `&&` | continue to the next command if the first worked | 
-| `curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64` | cURL (which stands for Client for URL) will pull and install *kind*. The flags allow for a location to be set as to where you want kind installed. In the example above, kind will be installed in the directory where the command was run. |
-<br/><br/>
+| `curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64` | cURL (which stands for Client for URL) will pull and install *kind*. The flags allow for a location to be set as to where you want kind installed. In the example above, kind will be installed in the directory where the command was run.  |
+
+
 When you run the command you should see the following output. 
 
 ![Screenshot of installing kind on a Silicon Mac and it’s install location](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.25e280afpm-copy.png)
@@ -49,45 +50,47 @@ With kind installed, there are two last steps to complete.
 
 1.  Enable the execute bit on the kind application: `chmod +x ./kind`
 2.  Move the executable to your preferred location for installed binaries. For example: `sudo mv ./kind /usr/local/bin/kind`
-<br/><br/>
-<h3>Starting kind with bootstrap Cluster</h3>
+<br/>
+<h2>Starting kind with bootstrap Cluster</h2>
 
 Once kind is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
 
 ```Shell
 ./kind create cluster
 ```
-<br/><br/>
+<br/>
 If successful, you should see the output below:
 
 ![Screenshot of the kind control pane being built](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.05e280afpm.png)
 
-<br/><br/>
+<br/>
 You can also open Docker Desktop to see the control pane running.
 
 ![Screenshot of Docker Desktop that shows kind-control-pane cluster running](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-5.01.14e280afpm.png)
 <br/><br/>
 
-For those that prefer the command line to verify whether kind is running correctly, you can use `kubectl cluster-info --context kind-kind`. ![Screenshot of command kubectl cluster-info --context kind-kind](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-8.05.55e280afpm.png)
+For those that prefer the command line to verify whether kind is running correctly, you can use `kubectl cluster-info --context kind-kind`. <br/> ![Screenshot of command kubectl cluster-info --context kind-kind](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-8.05.55e280afpm.png)
 
 <br/><br/>
 And if you want more details about the nodes, you can leverage `kubectl describe node`. This will give detailed information about the kind-control-pane node. (The screenshot below is truncated.)
 ![Screenshot of out from kubectl describe node](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-10.34.19e280afpm-copy.png)
 
-<br/><br/>
+<br/>
 
 | Note: If, however, you get the error below, it means that Docker is not installed. This is easily resolved by going to [Docker](https://www.docker.com/) and installing Docker Desktop. Once Docker Desktop is installed, re-run the command. ![Screenshot of kind failing to build the cluster, with an error showing that the $PATH does not have the docker executable in it](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.44e280afpm.png) |
 | :--- |
 
-<br/><br/>
+
 
 <h2>Deploying a simple Application</h2>
 
-Before you deploy your application, let us define first the main components. Specifically, cluster, node and pod. A Kubernetes cluster is a grouping of nodes. A node, either physical or virtual machine, provides the core resources of CPU, memory, storage, etc. A pod is the smallest unit of the three and is where the actual application container(s) run, utilizing resources. 
+| Term | Meaning |
+| :--- |
+| cluster | grouping of nodes |
+| node | physical or virtual machine that provides core resources of CPU, memory, storage, etc. |
+| pod |  smallest computing unit where the actual application container(s) run, utilizing resources | 
 
-With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server (think of it as a web version of a “hello, world” code). The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod or deployment. 
-
-Basically, where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
+With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server. The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod  where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
 
 ```YAML
 apiVersion: apps/v1
