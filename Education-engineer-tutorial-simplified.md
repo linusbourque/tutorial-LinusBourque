@@ -1,4 +1,3 @@
-
 <h1>Deploy Applications with Kind (MacOS)</h1>
 
 Kubernetes is a popular container orchestration platform that is used by many organizations to deploy applications. You can use [kind](https://kind.sigs.k8s.io/) to gain practice with Kubernetes on our local systems. Let's deploy a simple web application with kind to see how it works. To begin, start by installing kind from https://kind.sigs.k8s.io/. 
