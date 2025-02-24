@@ -85,7 +85,7 @@ And if you want more details about the nodes, you can leverage `kubectl describe
 <h2>Deploying a simple Application</h2>
 
 | Term | Meaning |
-| :--- |
+| :--- | :--- |
 | cluster | grouping of nodes |
 | node | physical or virtual machine that provides core resources of CPU, memory, storage, etc. |
 | pod |  smallest computing unit where the actual application container(s) run, utilizing resources | 
