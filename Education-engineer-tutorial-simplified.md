@@ -1,22 +1,29 @@
 
 <h1>Deploy Applications with Kind (MacOS)</h1>
 
-Creating containers for application development is a fairly easy task but when you need to create 1000s or more, something more robust is needed. That’s where Kubernetes (or sometimes referred to as K8s) comes in. Kubernetes is a popular container orchestration platform that is used by many organizations to deploy applications. But if you’re just starting, deploying 1000s of containers may be overkill. Maybe you just need 2-3 for a simple web application. You could still manage these manually individually. Or you can use [kind](https://kind.sigs.k8s.io/) to gain practice with Kubernetes on our local systems. Let's deploy an application with **kind** to see how it works. To begin, start by installing kind from https://kind.sigs.k8s.io/. 
+Kubernetes is a popular container orchestration platform that is used by many organizations to deploy applications. You can use [kind](https://kind.sigs.k8s.io/) to gain practice with Kubernetes on our local systems. Let's deploy an application with kind to see how it works. To begin, start by installing kind from https://kind.sigs.k8s.io/. 
 
 <H2>Prerequisites</H2>  
 
  *  [docker](https://docs.docker.com/desktop/)
  *  [go](https://go.dev/) (version 1.16 or newer)
 
+<h2>Quick Terminology</h2>
+
+| Term | Meaning |
+------------------
+| Cluster | A grouping of nodes |
+| Node |  A physical or virtual machine that provides the core resources of CPU, memory, storage, etc. |
+| Pod | The smallest unit where the actual application container(s) run, utilizing the node resources |
+
 
 <H2>Install kind</H2>
 
-Depending on your local system OS, the installation instructions are straightforward. For MacOS, the instructions will vary between Intel chipsets or M1/M2/M3 chipsets. 
+For MacOS, the instructions will vary between Intel chipsets or M1/M2/M3 chipsets. 
 
 For Intel chipsets use the following command in a terminal.
 
 `[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-darwin-amd64`
-
 
 For Silicon chips (M1/M2/M3) use the following command in a terminal.
 
@@ -26,15 +33,14 @@ Note: the command defines the architecture (`uname-m`) and makes sure it matches
 
 ![Screenshot of installing kind on a Silicon Mac and it’s install location](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.25e280afpm-copy.png)
 
-With **kind** installed, there are two last steps to complete.
+With kind installed, there are two last steps to complete.
 
 1.  Enable the execute bit on the kind application: `chmod +x ./kind`
 2.  Move the executable to your preferred location for installed binaries. For example: `sudo mv ./kind /usr/local/bin/kind`
 
 <h3>Starting kind with bootstrap Cluster</h3>
 
-
-Once **kind** is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
+Once kind is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
 
 `./kind create cluster`
 
