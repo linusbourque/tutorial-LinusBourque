@@ -81,7 +81,7 @@ With Kubernetes now installed, you can now deploy your first application. For th
 
 Basically, where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
 
-```
+```YAML
 apiVersion: apps/v1
 kind: Deployment
 metadata:
