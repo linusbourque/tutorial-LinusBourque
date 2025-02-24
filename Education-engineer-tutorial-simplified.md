@@ -49,7 +49,7 @@ With kind installed, there are two last steps to complete.
 
 1.  Enable the execute bit on the kind application: `chmod +x ./kind`
 2.  Move the executable to your preferred location for installed binaries. For example: `sudo mv ./kind /usr/local/bin/kind`
-<br/>
+
 <h2>Starting kind with bootstrap Cluster</h2>
 
 Once kind is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
@@ -70,7 +70,7 @@ You can also open Docker Desktop to see the control pane running.
 
 For those that prefer the command line to verify whether kind is running correctly, you can use `kubectl cluster-info --context kind-kind`. <br/> ![Screenshot of command kubectl cluster-info --context kind-kind](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-8.05.55e280afpm.png)
 
-<br/><br/>
+<br/>
 And if you want more details about the nodes, you can leverage `kubectl describe node`. This will give detailed information about the kind-control-pane node. (The screenshot below is truncated.)
 ![Screenshot of out from kubectl describe node](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-10.34.19e280afpm-copy.png)
 
@@ -79,7 +79,7 @@ And if you want more details about the nodes, you can leverage `kubectl describe
 | Note: If, however, you get the error below, it means that Docker is not installed. This is easily resolved by going to [Docker](https://www.docker.com/) and installing Docker Desktop. Once Docker Desktop is installed, re-run the command. ![Screenshot of kind failing to build the cluster, with an error showing that the $PATH does not have the docker executable in it](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.44e280afpm.png) |
 | :--- |
 
-
+<br/>
 
 <h2>Deploying a simple Application</h2>
 
@@ -129,23 +129,23 @@ spec:
 status:
   loadBalancer: {}
 ```
-<br/><br/>
+<br/>
 With the YAML file created, you can now run the command `kubectl apply -f <name>.YAML` where <name> is what you called the YAML file. This will start the web container but will not start the web service listening. For that you will need to start the service. To make it easier, you can create a variable that pulls the pod name so that it can be easier to call. 
 <br/><br/>
 Creating the variable: 
 ```Shell
 PODNAME=$(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{end}}' --selector=app=web)
 ```
-<br/><br/>
+<br/>
 Since that variable is now defined, you can start the web server service and have it listening on port 8080 with the following command: 
 ```Shell
 kubectl port-forward $PODNAME 8080:8080
 ``` 
-<br/><br/>
+<br/>
 If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `https://localhost:8080` and you should see the webpage similar to the screenshot below. 
 
 ![Screenshot of the default webpage of the newly created web service](https://thevirtualbuddha.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-11.25.00e280afpm.png)
-<br/><br/>
+<br/>
 <h2>Next Steps</h2>
 
 So now you have completed installation of Docker, kind and a simple web application. We hope you now better understand how one can deploy applications using Kubernetes locally. Your next step would be to go to AWS and deploy a [cluster using Palette](https://github.com/spectrocloud/librarium/blob/master/docs/docs-content/getting-started/aws/deploy-k8s-cluster.md). 
