@@ -56,7 +56,7 @@ Note: If, however, you get the error below, it means that Docker is not installe
 
 <h2>Deploying a simple Application</h2>
 
-With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server (think of it as a web version of a “hello, world” code). The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod or deployment. Basically, where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file. It is important to ensure the extension of the file ends with .yaml.
+With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server (think of it as a web version of a “hello, world” code). The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod or deployment. Basically, where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
 
 ```
 apiVersion: apps/v1
@@ -102,7 +102,13 @@ spec:
 status:
   loadBalancer: {}
 ```
+With the YAML file created, you can now run the command `kubectl apply -f <name>.YAML` where <name> is what you called the YAML file. This will start the web container but will not get the service listening. For that you will need to run the service. To make it easier, you can create a variable that pulls the pod name so that it can be easier to call. 
 
+Creating the variable: `PODNAME=$(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{end}}' --selector=app=web)`
+
+Since that variable is now defined, you can start the web server service and have it listening on port 8080 with the following command: `kubectl port-forward $PODNAME 8080:8080`. If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `localhost:8080` and you should see the webpage. 
+
+![Screenshot of the default webpage of the newly created web service](https://thevirtualbuddha.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-11.25.00e280afpm.png)
 
 # Cleanup
 
