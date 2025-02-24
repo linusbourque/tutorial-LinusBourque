@@ -84,13 +84,15 @@ And if you want more details about the nodes, you can leverage `kubectl describe
 
 <h2>Deploying a simple Application</h2>
 
+Before deploying our simple web application, let's define 3 main terms. 
+
 | Term | Meaning |
 | :--- | :--- |
 | cluster | grouping of nodes |
 | node | physical or virtual machine that provides core resources of CPU, memory, storage, etc. |
 | pod |  smallest computing unit where the actual application container(s) run, utilizing resources | 
 
-With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server. The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod  where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
+With that understanding, create a YAML file. A YAML file defines the boundaries of the pod  where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
 
 ```YAML
 apiVersion: apps/v1
@@ -137,7 +139,7 @@ status:
   loadBalancer: {}
 ```
 <br/><br/>
-With the YAML file created, you can now run the command `kubectl apply -f <name>.YAML` where <name> is what you called the YAML file. This will start the web container but will not get the service listening. For that you will need to run the service. To make it easier, you can create a variable that pulls the pod name so that it can be easier to call. 
+With the YAML file created, you can now run the command `kubectl apply -f <name>.YAML` where <name> is what you called the YAML file. This will start the web container but will not start the web service listening. For that you will need to start the service. To make it easier, you can create a variable that pulls the pod name so that it can be easier to call. 
 <br/><br/>
 Creating the variable: 
 ```Shell
@@ -149,7 +151,7 @@ Since that variable is now defined, you can start the web server service and hav
 kubectl port-forward $PODNAME 8080:8080
 ``` 
 <br/><br/>
-If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `localhost:8080` and you should see the webpage. 
+If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `https://localhost:8080` and you should see the webpage similar to the screenshot below. 
 
 ![Screenshot of the default webpage of the newly created web service](https://thevirtualbuddha.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-11.25.00e280afpm.png)
 <br/><br/>
