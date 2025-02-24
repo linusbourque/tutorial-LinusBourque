@@ -29,7 +29,9 @@ For Intel chipsets use the following command in a terminal.
 
 For Silicon chips (M1/M2/M3) use the following command in a terminal.
 
-`[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64`
+```Shell
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64
+``
 
 | Command | Meaning |
 | --------| ---------- |
@@ -50,7 +52,9 @@ With kind installed, there are two last steps to complete.
 
 Once kind is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
 
-`./kind create cluster`
+```Shell
+./kind create cluster
+```
 
 If successful, you should see the output below:
 
@@ -129,9 +133,17 @@ status:
 ```
 With the YAML file created, you can now run the command `kubectl apply -f <name>.YAML` where <name> is what you called the YAML file. This will start the web container but will not get the service listening. For that you will need to run the service. To make it easier, you can create a variable that pulls the pod name so that it can be easier to call. 
 
-Creating the variable: `PODNAME=$(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{end}}' --selector=app=web)`
+Creating the variable: 
+```Shell
+PODNAME=$(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{end}}' --selector=app=web)
+```
 
-Since that variable is now defined, you can start the web server service and have it listening on port 8080 with the following command: `kubectl port-forward $PODNAME 8080:8080`. If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `localhost:8080` and you should see the webpage. 
+Since that variable is now defined, you can start the web server service and have it listening on port 8080 with the following command: 
+```Shell
+kubectl port-forward $PODNAME 8080:8080
+``` 
+
+If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `localhost:8080` and you should see the webpage. 
 
 ![Screenshot of the default webpage of the newly created web service](https://thevirtualbuddha.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-11.25.00e280afpm.png)
 
