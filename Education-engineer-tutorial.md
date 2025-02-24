@@ -137,3 +137,5 @@ Since that variable is now defined, you can start the web server service and hav
 <h2>Next Steps</h2>
 
 So now you have completed installation of Docker, kind and a simple web application. We hope you now better understand how one can deploy applications using Kubernetes locally. Your next step would be to go to AWS and deploy a [cluster using Palette](https://github.com/spectrocloud/librarium/blob/master/docs/docs-content/getting-started/aws/deploy-k8s-cluster.md). 
+
+
