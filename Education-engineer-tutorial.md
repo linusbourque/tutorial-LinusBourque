@@ -56,7 +56,11 @@ Note: If, however, you get the error below, it means that Docker is not installe
 
 <h2>Deploying a simple Application</h2>
 
-With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server (think of it as a web version of a “hello, world” code). The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod or deployment. Basically, where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
+Before you deploy your application, let us define first the main components. Specifically, cluster, node and pod. A Kubernetes cluster is a grouping of nodes. A node, either physical or virtual machine, provides the core resources of CPU, memory, storage, etc. A pod is the smallest unit of the three and is where the actual application container(s) run, utilizing resources. 
+
+With Kubernetes now installed, you can now deploy your first application. For this application, you’ll deploy a simple web server (think of it as a web version of a “hello, world” code). The first thing that you need to do is create a YAML file (which means YAML Ain’t Markup Language or Yet Another Markup Language, depending on who you talk to). A YAML file defines the boundaries of the pod or deployment. 
+
+Basically, where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
 
 ```
 apiVersion: apps/v1
@@ -110,6 +114,6 @@ Since that variable is now defined, you can start the web server service and hav
 
 ![Screenshot of the default webpage of the newly created web service](https://thevirtualbuddha.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-11.25.00e280afpm.png)
 
-# Cleanup
+<h2>Next Steps</h2>
 
-# Next Steps
+So now you have completed installation of Docker, kind and a simple web application. We hope you now better understand how one can deploy applications using Kubernetes locally. Your next step would be to go to AWS and deploy a [cluster using Palette](https://github.com/spectrocloud/librarium/blob/master/docs/docs-content/getting-started/aws/deploy-k8s-cluster.md). 
