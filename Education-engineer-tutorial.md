@@ -54,6 +54,7 @@ Note: If, however, you get the error below, it means that Docker is not installe
 
 # [Concept 2]
 
+`#ffffff`
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -98,7 +99,7 @@ spec:
 status:
   loadBalancer: {}
 ```
-
+`#000000`
 
 
 ## [Sub-concept 2]
