@@ -23,7 +23,9 @@ For MacOS, the instructions will vary between Intel chipsets or M1/M2/M3 chipset
 
 For Intel chipsets use the following command in a terminal.
 
-`[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-darwin-amd64`
+```Shell
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-darwin-amd64
+```
 
 For Silicon chips (M1/M2/M3) use the following command in a terminal.
 
