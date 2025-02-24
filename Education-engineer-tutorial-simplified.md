@@ -1,7 +1,7 @@
 
 <h1>Deploy Applications with Kind (MacOS)</h1>
 
-Kubernetes is a popular container orchestration platform that is used by many organizations to deploy applications. You can use [kind](https://kind.sigs.k8s.io/) to gain practice with Kubernetes on our local systems. Let's deploy an application with kind to see how it works. To begin, start by installing kind from https://kind.sigs.k8s.io/. 
+Kubernetes is a popular container orchestration platform that is used by many organizations to deploy applications. You can use [kind](https://kind.sigs.k8s.io/) to gain practice with Kubernetes on our local systems. Let's deploy a simple web application with kind to see how it works. To begin, start by installing kind from https://kind.sigs.k8s.io/. 
 
 <H2>Prerequisites</H2>  
 
@@ -84,15 +84,7 @@ And if you want more details about the nodes, you can leverage `kubectl describe
 
 <h2>Deploying a simple Application</h2>
 
-Before deploying our simple web application, let's define 3 main terms. 
-
-| Term | Meaning |
-| :--- | :--- |
-| cluster | grouping of nodes |
-| node | physical or virtual machine that provides core resources of CPU, memory, storage, etc. |
-| pod |  smallest computing unit where the actual application container(s) run, utilizing resources | 
-
-With that understanding, create a YAML file. A YAML file defines the boundaries of the pod  where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
+In order to deploy the web application, you need to create a YAML file. A YAML file defines the boundaries of the pod  where the container will run. The YAML file uses key-value pairs to define a multitude of settings and attributes for the pod. You can use the sample below by copying it into a plain text file or creating it in your terminal window with vi editor. It is important to ensure the extension of the file ends with .yaml. 
 
 ```YAML
 apiVersion: apps/v1
