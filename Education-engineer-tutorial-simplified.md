@@ -72,6 +72,7 @@ For those that prefer the command line to verify whether kind is running correct
 
 <br/>
 And if you want more details about the nodes, you can leverage `kubectl describe node`. This will give detailed information about the kind-control-pane node. (The screenshot below is truncated.)
+
 ![Screenshot of out from kubectl describe node](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-10.34.19e280afpm-copy.png)
 
 <br/>
