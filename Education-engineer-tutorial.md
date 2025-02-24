@@ -7,7 +7,9 @@ Creating containers for application development is a fairly easy task but when y
  *  [docker](https://docs.docker.com/desktop/)
  *  [go](https://go.dev/) 1.16+
 
+
 <H2>Install kind</H2>
+## [Sub-concept 1]
 Depending on your local system OS, the installation instructions are straightforward. For MacOS, the instructions will vary between Intel chipsets or M1/M2/M3 chipsets. 
 
 For Intel chipsets use the following command in a terminal.
@@ -29,6 +31,7 @@ With **kind** installed, there are two last steps to complete.
 2.  Move the executable to your preferred location for installed binaries. For example: `sudo mv ./kind /usr/local/bin/kind`
 
 <h2>Starting kind with bootstrap Cluster</h2>
+## [Sub-concept 2]
 
 Once **kind** is installed, you will need to create a bootstrap Kubernetes cluster. This uses a pre-built node image. We return back to our terminal with the following command:
 
@@ -42,15 +45,14 @@ You can also open Docker Desktop to see the control pane running.
 
 ![Screenshot of Docker Desktop that shows kind-control-pane cluster running](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-5.01.14e280afpm.png)
 
+For those that prefer the command line to verify whether kind is running correctly, you can use `kubectl cluster-info --context kind-kind`. ![Screenshot of command kubectl cluster-info --context kind-kind(https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-8.05.55e280afpm.png)
 
 Note: If, however, you get the error below, it means that Docker is not installed. This is easily resolved by going to [Docker](https://www.docker.com/) and installing Docker Desktop. Once Docker Desktop is installed, re-run the command.
 ![Screenshot of kind failing to build the cluster, with an error showing that the $PATH does not have the docker executable in it](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.44e280afpm.png) 
 
 
 
-## [Sub-concept 1]
 
-## [Sub-concept 2]
 
 # [Concept 2]
 
