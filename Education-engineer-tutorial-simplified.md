@@ -35,7 +35,6 @@ For Silicon chips (M1/M2/M3) use the following command in a terminal.
 | `= x86_64`| checks if it matches wanted architecture (in this case, Mac hardware with Intel CPUs) | 
 | `&&` | continue to the next command if the first worked | 
 | `curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-arm64` | cURL (which stands for Client for URL) will pull and install *kind*. The flags allow for a location to be set as to where you want kind installed. In the example above, kind will be installed in the directory where the command was run. |
-| ----------------------------------------------------------------- |
 
 ![Screenshot of installing kind on a Silicon Mac and it’s install location](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.25e280afpm-copy.png)
 
