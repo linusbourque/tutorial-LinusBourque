@@ -67,8 +67,7 @@ And if you want more details about the nodes, you can leverage `kubectl describe
 ![Screenshot of out from kubectl describe node](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-10.34.19e280afpm-copy.png)
 
 
-| Note: If, however, you get the error below, it means that Docker is not installed. This is easily resolved by going to [Docker](https://www.docker.com/) and installing Docker Desktop. Once Docker Desktop is installed, re-run the command.
-![Screenshot of kind failing to build the cluster, with an error showing that the $PATH does not have the docker executable in it](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.44e280afpm.png) |
+| Note: If, however, you get the error below, it means that Docker is not installed. This is easily resolved by going to [Docker](https://www.docker.com/) and installing Docker Desktop. Once Docker Desktop is installed, re-run the command. ![Screenshot of kind failing to build the cluster, with an error showing that the $PATH does not have the docker executable in it](https://thevirtualbuddha9.wordpress.com/wp-content/uploads/2025/02/screenshot-2025-02-23-at-12.48.44e280afpm.png) |
 | --------------- |
 
 
