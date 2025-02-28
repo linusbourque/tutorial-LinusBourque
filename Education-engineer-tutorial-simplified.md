@@ -150,4 +150,3 @@ If you want it to run in the background, you can add an & symbol to the end of t
 <h2>Next Steps</h2>
 
 So now you have completed installation of Docker, kind and a simple web application. We hope you now better understand how one can deploy applications using Kubernetes locally. Your next step would be to go to AWS and deploy a [cluster using Palette](https://github.com/spectrocloud/librarium/blob/master/docs/docs-content/getting-started/aws/deploy-k8s-cluster.md). 
-
