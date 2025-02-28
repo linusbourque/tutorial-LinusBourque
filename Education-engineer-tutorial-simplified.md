@@ -134,14 +134,17 @@ status:
 With the YAML file created, you can now run the command `kubectl apply -f <name>.YAML` where <name> is what you called the YAML file. This will start the web container but will not start the web service listening. For that you will need to start the service. To make it easier, you can create a variable that pulls the pod name so that it can be easier to call. 
 <br/><br/>
 Creating the variable: 
+
 ```
 PODNAME=$(kubectl get pods --template '{{range .items}}{{.metadata.name}}{{end}}' --selector=app=web)
 ```
-<br/>
-Since that variable is now defined, you can start the web server service and have it listening on port 8080 with the following command: 
+
+Since that variable is now defined, you can start the web server service and have it listening on port 8080 with the following command:
+
 ```
 kubectl port-forward $PODNAME 8080:8080
-``` 
+```
+
 <br/>
 If you want it to run in the background, you can add an & symbol to the end of the command. Now, point your browser to `https://localhost:8080` and you should see the webpage similar to the screenshot below. 
 
